@@ -17,6 +17,8 @@ public class BuddyInfo {
     private String phoneNum;
     private String address;
 
+    private String SIN;
+
     public BuddyInfo (String name, String phoneNum, String address) {
         this.name = name;
         this.phoneNum = phoneNum;
