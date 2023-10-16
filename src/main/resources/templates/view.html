@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Add AddressBook</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <style>
+            table, th, td {
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+        </style>
+    </head>
+<body>
+    <h1>AddressBook ID: <span th:text="${addressBook.getAddressBookId()}"></span></h1>
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Number</th>
+            <th>Address</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="buddy : ${addressBook.getBuddies()}">
+            <td><span th:text="${buddy.getBuddyId()}"></span></td>
+            <td><span th:text="${buddy.getName()}"></span></td>
+            <td><span th:text="${buddy.getPhoneNum()}"></span></td>
+            <td><span th:text="${buddy.getAddress()}"></span></td>
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>
