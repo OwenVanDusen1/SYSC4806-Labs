@@ -47,5 +47,8 @@ class AddressBookPersistenceTest {
         for (BuddyInfo b : results.get(0).getAddressBook()) {
             System.out.println(b + " (id=" + b.getBuddyId() + ")");
         }
+
+        addressBook.removeBuddyFromAddressBook(b1);
+        addressBook.removeBuddyFromAddressBook(b2);
     }
 }

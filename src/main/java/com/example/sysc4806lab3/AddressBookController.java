@@ -16,7 +16,7 @@ public class AddressBookController {
     @Autowired
     BuddyInfoRepository buddyInfoRepository;
 
-    @PostMapping("/AddressBook")
+    @PostMapping("/AddressBookView")
     public String createAddressBook(Model model) {
         AddressBook addressBook = new AddressBook();
         addressBookRepository.save(addressBook);
@@ -25,7 +25,7 @@ public class AddressBookController {
         return "view";
     }
 
-    @GetMapping("/AddressBook/{id}")
+    @GetMapping("/AddressBookView/{id}")
     public String showAddressBook(@PathVariable Long id, Model model) {
         AddressBook addressBook = addressBookRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Cannot find addressBook"));
 
@@ -34,7 +34,7 @@ public class AddressBookController {
         return "view";
     }
 
-    @PostMapping("/AddressBook/{id}/buddy")
+    @PostMapping("/AddressBookView/{id}/buddy")
     public String addBuddy(@PathVariable Long id, @RequestBody BuddyInfo buddy, Model model) {
         AddressBook ab = addressBookRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Cannot find addressBook"));
         ab.addBuddyToAddressBook(buddy);
@@ -45,7 +45,7 @@ public class AddressBookController {
         return "view";
     }
 
-    @PostMapping("/AddressBook/{aId}/removeBuddy/{bId}")
+    @PostMapping("/AddressBookView/{aId}/removeBuddy/{bId}")
     public String removeBuddy(@PathVariable Long aId, @PathVariable Long bId, Model model) {
         AddressBook ab = addressBookRepository.findById(aId).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Cannot find addressBook"));
         BuddyInfo b = buddyInfoRepository.findById(bId).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Cannot find addressBook"));
