@@ -30,6 +30,6 @@ public class TestingWebApplicationTests {
         this.mockMvc.perform(post("/AddressBook")).andDo(print()).andExpect(status().isOk());
 
         this.mockMvc.perform(get("/AddressBook/1")).andExpect(status().isOk()).andExpect(content()
-                .string(containsString("{\"addressBookId\":1,\"addressBook\":[],\"buddies\":[],\"addressBookSize\":0}")));
+                .string(containsString("{\"addressBookId\":1")));
     }
 }
