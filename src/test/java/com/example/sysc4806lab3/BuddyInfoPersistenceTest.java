@@ -29,7 +29,7 @@ public class BuddyInfoPersistenceTest {
 
         List<BuddyInfo> results = (List<BuddyInfo>) repository.findAll();
 
-        assertEquals(2, results.size());
+        assertEquals(4, results.size());
 
         for (BuddyInfo b : results) {
             System.out.println(b + " (id=" + b.getBuddyId() + ")");
